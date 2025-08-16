@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoMdSearch } from "react-icons/io";
 import { FaBookOpen } from "react-icons/fa";
+import { FaArrowRightLong } from "react-icons/fa6";
 
 const Home = () => {
 
@@ -62,20 +63,23 @@ const Home = () => {
               return(
                 <div
                 key={index}
-                className=" group  bg-white w-80 pb-15 hover:-translate-y-1 transition-transform duration-300 gap-4 px-5 hover:shadow-2xl flex flex-col justify-center rounded-2xl"
+                className=" group  bg-white w-80 pb-5 hover:-translate-y-1 transition-transform duration-300 gap-3  hover:shadow-2xl flex flex-col justify-center rounded-2xl"
               >
-                <img
+              <div className=' relative h-60'>
+                  <img
                   src={item.strCategoryThumb}
                   alt={item.strCategory}
-                  className="rounded-xl h-40 w-full object-contain transition-transform  duration-300 group-hover:scale-110"
+                  className="rounded-xl h-50 w-full object-cover  overflow-hidden transition-transform  duration-300 group-hover:scale-105"
                 />
-                <h3 className="text-xl text-amber-900 hover:text-amber-700 font-bold mt-4">
+                <div className='absolute w-full opacity-0 group-hover:opacity-100  inset-0 h-full  bg-gradient-to-t from-black to-transparent'></div>
+              </div>
+                <h3 className="text-xl text-amber-900 hover:text-amber-700 font-bold mt-4 px-5">
                   {item.strCategory}
                 </h3>
-                <p className="text-amber-800 text-sm mt-2">
+                <p className="text-amber-800 text-sm mt-2 px-5">
                   {item.strCategoryDescription.slice(0, 120)}...
                 </p>
-                
+                <button className='bg-amber-200 flex items-center w-40  ml-5 justify-center text-amber-700 rounded-full gap-3.5 py-1.5   opacity-0 group-hover:opacity-100'>View Recipe <FaArrowRightLong /></button>
               </div>
               )
             }
