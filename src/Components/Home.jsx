@@ -39,9 +39,9 @@ const Home = () => {
          <Link to={"/instructions"}> <button className='py-3 px-6 rounded-full bg-amber-500 hover:bg-amber-700 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 text-white flex items-center gap-2.5'>
             <FaBookOpen /> Today's Special
           </button></Link>
-          <button className='py-3 px-6 rounded-full hover:bg-gray-50 text-amber-800 border border-amber-300 hover:-translate-y-1 transition-transform duration-300 flex items-center gap-2.5'>
+         <Link to={"/search"}> <button className='py-3 px-6 rounded-full hover:bg-gray-50 text-amber-800 border border-amber-300 hover:-translate-y-1 transition-transform duration-300 flex items-center gap-2.5'>
             <IoMdSearch /> Search a Recipe
-          </button>
+          </button></Link>
         </div>
       </div>
       <div className='bg-amber-100'>
