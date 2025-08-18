@@ -44,7 +44,7 @@ const Home = () => {
  },[])
   return (
     <>
-      <div className='bg-[url(hero.jpg)] flex flex-col items-center justify-center text-center h-[750px] gap-8'>
+      <div className='bg-[url(/hero.jpg)] flex flex-col items-center justify-center text-center h-[750px] gap-8'>
         <h1 className='text-5xl md:text-6xl font-bold text-amber-100 font-playfair'>
           Welcome to <span className='text-amber-500'>Recipe Finder</span>
         </h1>
@@ -66,7 +66,7 @@ const Home = () => {
           <div className='flex items-center relative  gap-2.5'>
             <IoMdSearch className='absolute hover:translate-y-1  left-1.5 md:left-3 text-amber-900 text-sm md:text-xl' />
             <input
-              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full hover:-translate-y-1 transition-transform duration-300 py-2 md:p-3 px-4 md:px-9 placeholder:text-amber-600'
+              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full hover:-translate-y-1 transition-transform duration-300 p-3 md:p-3 px-4 md:px-9 placeholder:text-amber-600'
               type="text"
               placeholder='Search for Category'
              
