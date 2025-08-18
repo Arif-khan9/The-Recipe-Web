@@ -49,7 +49,7 @@ const Instructions = () => {
            </details>
             <div className="border mt-4 border-gray-200"> </div>
             <h3 className="text-xl text-bold mt-4">Source</h3>
-            <a href="https://www.bbc.co.uk/food/recipes/steakandkidneypie_73308 " target="_blank" className="text-red-600 mt-4 text-sm " >https://www.bbc.co.uk/food/recipes/steakandkidneypie_73308</a>  
+            <a href={meal?.strYoutube} target="_blank" className="text-red-600 mt-4 text-sm " >{meal?.strYoutube}</a>  
         </div>
         </div> 
     </div>
