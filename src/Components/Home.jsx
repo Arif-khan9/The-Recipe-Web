@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 const Home = () => {
 
   const [data, setData] = useState([]);
+  const [singleMealId , setSingleMealId] = useState(null)
+  
 
   const API = `https://www.themealdb.com/api/json/v1/1/categories.php`;
 
@@ -25,7 +27,21 @@ const Home = () => {
     fetchBoxData();
   }, []);
 
+   const fetchSingleMeal = async () => {
+    try {
+      const res = await fetch(`https://www.themealdb.com/api/json/v1/1/random.php`);
+      const json = await res.json();
+      console.log("singleData", json);
+      setSingleMealId(json.meals[0].idMeal)
+     
+    } catch (error) {
+      console.log("Error", error);
+    }
+  };
 
+ useEffect(()=>{
+  fetchSingleMeal()
+ },[])
   return (
     <>
       <div className='bg-[url(hero.jpg)] flex flex-col items-center justify-center text-center h-[750px] gap-8'>
@@ -36,7 +52,7 @@ const Home = () => {
           Discover delicious meals that will tantalize your taste buds and <br /> brighten your day!
         </p>
         <div className='md:flex md:flex-row flex flex-col gap-2.5'>
-         <Link to={"/instructions"}> <button className='py-3 px-6 rounded-full bg-amber-500 hover:bg-amber-700 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 text-white flex items-center gap-2.5'>
+         <Link to={`/recipe/${singleMealId}`}> <button className='py-3 px-6 rounded-full bg-amber-500 hover:bg-amber-700 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 text-white flex items-center gap-2.5'>
             <FaBookOpen /> Today's Special
           </button></Link>
          <Link to={"/search"}> <button className='py-3 px-6 rounded-full hover:bg-gray-50 text-amber-800 border border-amber-300 hover:-translate-y-1 transition-transform duration-300 flex items-center gap-2.5'>
@@ -72,7 +88,7 @@ const Home = () => {
                   alt={item.strCategory}
                   className="rounded-xl h-50 w-full object-cover  overflow-hidden transition-transform  duration-300 group-hover:scale-105"
                 />
-                <div className='absolute w-full opacity-0 group-hover:opacity-100  inset-0 h-full  bg-gradient-to-t from-black to-transparent'></div>
+                <div className='absolute w-full opacity-0 group-hover:opacity-100  -z-1 inset-0 h-full  bg-gradient-to-t from-[#868e96] to-transparent'></div>
               </div>
                 <h3 className="text-xl text-amber-900 hover:text-amber-700 font-bold mt-4 px-5">
                   {item.strCategory}

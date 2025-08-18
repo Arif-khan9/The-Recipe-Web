@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
 import { FaYoutube } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const Instructions = () => {
 
+  const [meal, setMeal] = useState(null);
+    const {id } = useParams()
+    console.log("id",id)
+
+    
+
+    const fatchSearchMeal = async () =>{
+      try{
+        const res = await  fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
+        const data = await res.json()
+        console.log("data",data)
+        setMeal(data.meals[0]);
+      }catch (erore){
+        console.log("erore",erore)
+      }
+    }
+
+    useEffect(()=>{
+      fatchSearchMeal()
+    },[id])
 
   return (
    <>
@@ -10,21 +31,21 @@ const Instructions = () => {
     <Link to={"/"}><button className="px-4 py-2 ml-7 md:ml-35 lg:ml-55 reltive mt-20 text-xl font-bold hover:-translate-y-1 transition-transform duration-300 rounded-full bg-amber-600 hover:bg-amber-700 hover:shadow-lg text-white">Back</button></Link>
    <div className='flex justify-center items-center   '>
      <div className=' flex-col items-center lg:flex-row mt-10 flex justify-center gap-10 px-5'>
-        <img className='md:h-120 h-80 w-80 md:w-120 object-contain rounded-2xl' src="bread.jpg" alt="" />
+        <img className='md:h-120 h-80 w-80 md:w-120 object-contain rounded-2xl' src={meal?.strMealThumb} alt="" />
         <div className=''>
-            <h1 className='text-3xl md:text-4xl font-bold text-gray-800  '>Steak and Kidney Pie</h1>
+            <h1 className='text-3xl md:text-4xl font-bold text-gray-800  md:w-120'>{meal?.strMeal}</h1>
            <div className='flex gap-5 mt-4'>
-             <button className='p-1 bg-orange-100 text-orange-800 px-4 rounded-full'>Beef</button>
-            <button className='p-1 px-4 bg-blue-100 text-blue-800 rounded-full'>British</button>
+             <button className='p-1 bg-orange-100 text-orange-800 px-4 rounded-full'>{meal?.strArea}</button>
+            <button className='p-1 px-4 bg-blue-100 text-blue-800 rounded-full'>{meal?.strCategory}</button>
            </div>
-            <p className='text-gray-600 mt-4 text-sm md:text-xl'>A delicious steak and kidney pie recipe that you'll love!</p>
+            <p className='text-gray-600 mt-4 text-sm md:text-xl'>{meal?.strTags}</p>
          <div className='md:h-90 h-110 w-80 md:w-120 mt-5 shadow-sm px-5 overflow-hidden '>
             <h3 className="text-2xl font-bold text-gray-800 mt-5">Instructions</h3>
             <div className="border mt-2 border-gray-200"> </div>
-             <p className="mt-5">stock to the pan, stir well and bring to the boil. Turn the heat down and simmer for 1½ hours without a lid. If the liquid evaporates too much, add more stock. Remove from the heat. Add salt, pepper and Worcestershire sauce and allow to cool completely. Place the cooked meat mixture into a pie dish. </p>
+             <p className="mt-5">{meal?.strInstructions.slice(0,200)} </p>
            <details>
             <summary className='cursor-pointer  text-blue-600 hover:underline '>Read more</summary>
-            <p> <p>  Roll out the pastry to 5mm/¼in thick and 5cm/2in larger than the dish you are using. Using a rolling pin, lift the pastry and place it over the top of the pie dish. Trim and crimp the edges with your fingers and thumb. Brush the surface with the beaten egg mixture and bake for 30-40 minutes until golden-brown and puffed. Serve with creamy mash and steamed vegetables to soak up the gravy.</p></p>
+            <p> <p>  {meal?.strInstructions}</p></p>
            </details>
             <div className="border mt-4 border-gray-200"> </div>
             <h3 className="text-xl text-bold mt-4">Source</h3>
@@ -42,43 +63,43 @@ const Instructions = () => {
         <div className="border mt-4 border-gray-200 mx-5"> </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">1</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient1}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">2</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient2}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">3</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient3}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">4</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient4}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">5</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient5}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">6</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient6}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">7</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient7}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">8</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient8}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">9</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient9}</span>
         </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">
           <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">10</button>
-          <span>3/4 cup soy sauce</span>
+          <span>{meal?.strIngredient10}</span>
         </div>
      </div>
    </div>
