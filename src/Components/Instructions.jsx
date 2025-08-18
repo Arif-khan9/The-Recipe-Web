@@ -54,11 +54,11 @@ const Instructions = () => {
         </div> 
     </div>
    </div>
-    <div className="flex justify-center mt-10">
+    <div className="flex justify-center mt-5 md:mt-10 md:mr-0 mr-4">
       <a href="https://www.youtube.com/watch?v=oTw5tPt4KmA" target="blank"> <button className="flex rounded-lg py-2 bg-red-600 hover:bg-red-700 md:px-36 px-17 lg:px-102 text-white gap-2.5 text-xl items-center"><FaYoutube /> Watch on YouTube</button></a>
     </div>
-   <div className="flex justify-center">
-     <div className="md:w-120  w-82 lg:w-250 shadow-sm h-150">
+   <div className="flex justify-center mr-4 md:mr-0 ">
+     <div className="md:w-120  w-82 lg:w-250 shadow-sm  ">
         <h3 className="text-bol text-3xl font-bold pt-9 pl-5">Ingredients</h3>
         <div className="border mt-4 border-gray-200 mx-5"> </div>
         <div className="flex items-center gap-2 text-wh ml-5 mt-5">

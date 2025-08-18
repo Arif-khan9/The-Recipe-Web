@@ -63,10 +63,10 @@ const Home = () => {
       <div className='bg-amber-100'>
         <div className="flex flex-col justify-center text-center items-center gap-6 pt-20">
           <h3 className='text-3xl md:text-4xl text-amber-900 font-bold'>Browse by Category</h3>
-          <div className='flex items-center relative gap-2.5'>
-            <IoMdSearch className='absolute hover:translate-y-1  left-3 text-amber-900 text-xl' />
+          <div className='flex items-center relative  gap-2.5'>
+            <IoMdSearch className='absolute hover:translate-y-1  left-1.5 md:left-3 text-amber-900 text-xl' />
             <input
-              className='border bg-white border-amber-300 rounded-full hover:-translate-y-1 transition-transform duration-300  p-3 px-9 placeholder:text-amber-600'
+              className='border bg-white border-amber-300 rounded-full hover:-translate-y-1 transition-transform duration-300 py-2 md:p-3 px-5 md:px-9 placeholder:text-amber-600'
               type="text"
               placeholder='Search for Category'
              
