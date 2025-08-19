@@ -61,46 +61,26 @@ const Instructions = () => {
      <div className="md:w-120  w-82 lg:w-250 shadow-sm  ">
         <h3 className="text-bol text-3xl font-bold pt-9 pl-5">Ingredients</h3>
         <div className="border mt-4 border-gray-200 mx-5"> </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">1</button>
-          <span>{meal?.strIngredient1}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">2</button>
-          <span>{meal?.strIngredient2}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">3</button>
-          <span>{meal?.strIngredient3}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">4</button>
-          <span>{meal?.strIngredient4}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">5</button>
-          <span>{meal?.strIngredient5}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">6</button>
-          <span>{meal?.strIngredient6}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">7</button>
-          <span>{meal?.strIngredient7}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">8</button>
-          <span>{meal?.strIngredient8}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">9</button>
-          <span>{meal?.strIngredient9}</span>
-        </div>
-        <div className="flex items-center gap-2 text-wh ml-5 mt-5">
-          <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center   w-5 h-5 rounded-full">10</button>
-          <span>{meal?.strIngredient10}</span>
-        </div>
+        <div className="ml-5 mt-5">
+       {(() => {
+      let items = [];
+       for (let i = 1; i <= 20; i++) {
+        const ingredient = meal?.[`strIngredient${i}`];
+        if (ingredient) {
+          items.push(
+           <div key={i} className="flex items-center gap-2 text-wh mt-2">
+            <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center w-5 h-5 rounded-full">
+              {i}
+            </button>
+            <span>{ingredient}</span>
+          </div>
+        );
+      }
+    }
+    return items;
+  })()}
+</div>
+
      </div>
    </div>
    </section>
