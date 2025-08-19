@@ -44,7 +44,7 @@ const Home = () => {
  },[])
   return (
     <>
-      <div className='bg-[url(/hero.jpg)] flex flex-col items-center justify-center text-center h-[750px] gap-8'>
+      <div className='bg-[url(/hero.jpg)] bg-center bg-cover flex flex-col items-center justify-center text-center h-[750px] gap-8'>
         <h1 className='text-5xl md:text-6xl font-bold text-amber-100 font-playfair'>
           Welcome to <span className='text-amber-500'>Recipe Finder</span>
         </h1>
@@ -55,7 +55,7 @@ const Home = () => {
          <Link to={`/recipe/${singleMealId}`}> <button className='py-3 px-6 rounded-full bg-amber-500 hover:bg-amber-700 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 text-white flex items-center gap-2.5'>
             <FaBookOpen /> Today's Special
           </button></Link>
-         <Link to={"/search"}> <button className='py-3 px-6 rounded-full hover:bg-gray-50 text-amber-800 border border-amber-300 hover:-translate-y-1 transition-transform duration-300 flex items-center gap-2.5'>
+         <Link to={"/search"}> <button className='py-3 px-6 rounded-full bg-gray-50 text-amber-800 border border-amber-300 hover:-translate-y-1 transition-transform duration-300 flex items-center gap-2.5'>
             <IoMdSearch /> Search a Recipe
           </button></Link>
         </div>
@@ -64,9 +64,9 @@ const Home = () => {
         <div className="flex flex-col justify-center text-center items-center gap-6 pt-20">
           <h3 className='text-3xl md:text-4xl text-amber-900 font-bold'>Browse by Category</h3>
           <div className='flex items-center relative  gap-2.5'>
-            <IoMdSearch className='absolute hover:translate-y-1  left-1.5 md:left-3 text-amber-900 text-sm md:text-xl' />
+            <IoMdSearch className='absolute hover:translate-y-1  left-1.5 md:left-3 text-amber-900 hidden md:block md:text-xl' />
             <input
-              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full hover:-translate-y-1 transition-transform duration-300 p-3 md:p-3 px-4 md:px-9 placeholder:text-amber-600'
+              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full hover:-translate-y-1 transition-transform duration-300 p-3 px-1 md:px-9 placeholder:text-amber-600'
               type="text"
               placeholder='Search for Category'
              
