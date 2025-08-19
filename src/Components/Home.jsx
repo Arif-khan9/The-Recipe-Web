@@ -66,7 +66,7 @@ const Home = () => {
           <div className='flex items-center relative  gap-2.5'>
             <IoMdSearch className='absolute hover:translate-y-1  left-1.5 md:left-3 text-amber-900 hidden md:block md:text-xl' />
             <input
-              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full hover:-translate-y-1 transition-transform duration-300 p-3 px-1 md:px-9 placeholder:text-amber-600'
+              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full hover:-translate-y-1 transition-transform duration-300 p-3 px-4 md:px-12 placeholder:text-amber-600'
               type="text"
               placeholder='Search for Category'
              
@@ -74,7 +74,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="flex flex-col  md:grid md:grid-cols-2  gap-10 lg:grid-cols-3 place-items-center md:px-10  py-16">
+        <div className="flex flex-col  md:grid md:grid-cols-2  gap-10 lg:grid-cols-3 xl:grid-cols-4 place-items-center md:px-10  py-16">
           {
             data.map((item, index) => {
               return(
