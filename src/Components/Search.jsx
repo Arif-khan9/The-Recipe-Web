@@ -5,7 +5,6 @@ const Search = () => {
  
    const [value , setValue] = useState("")
    
-  
    let handleclick =(value) =>{
     setValue(value)
    } 

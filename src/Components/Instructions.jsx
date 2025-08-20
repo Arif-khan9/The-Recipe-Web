@@ -51,7 +51,7 @@ const Instructions = () => {
     <Link to={"/"}><button className="px-4 py-2 ml-7 md:ml-35 lg:ml-55 reltive mt-20 text-xl font-bold hover:-translate-y-1 transition-transform duration-300 rounded-full bg-amber-600 hover:bg-amber-700 hover:shadow-lg text-white">Back</button></Link>
    <div className='flex justify-center items-center   '>
      <div className=' flex-col items-center lg:flex-row mt-10 flex justify-center gap-10 px-5'>
-        <img className='md:h-120 h-80 w-83 md:w-120 object-contain bg-center bg-cover rounded-2xl shadow-xl px-2' src={meal?.strMealThumb} alt="" />
+        <img className='md:h-120 h-80 w-83 md:w-120 object-contain bg-center bg-cover rounded-2xl  px-2' src={meal?.strMealThumb} alt="" />
         <div className=''>
             <h1 className='text-3xl md:text-4xl font-bold text-gray-800  md:w-120'>{meal?.strMeal}</h1>
            <div className='flex gap-5 mt-4'>
@@ -78,7 +78,7 @@ const Instructions = () => {
       <a href="https://www.youtube.com/watch?v=oTw5tPt4KmA" target="blank"> <button className="flex rounded-lg py-2 bg-red-600 hover:bg-red-700 md:px-36 px-17 lg:px-102 text-white gap-2.5 text-xl items-center"><FaYoutube /> Watch on YouTube</button></a>
     </div>
    <div className="flex justify-center  ">
-     <div className="md:w-120  w-82 lg:w-250 shadow-sm  ">
+     <div className="md:w-120  w-82 lg:w-250 shadow-sm mb-10 py-10 ">
         <h3 className="text-bol text-3xl font-bold pt-9 pl-5">Ingredients</h3>
         <div className="border mt-4 border-gray-200 mx-5"> </div>
         <div className="ml-5 mt-5">
