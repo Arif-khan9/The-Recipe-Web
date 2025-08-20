@@ -4,6 +4,8 @@ import { Link, useParams } from "react-router-dom";
 
 const Instructions = () => {
 
+
+
   const [meal, setMeal] = useState(null);
     const {id } = useParams()
     console.log("id",id)
@@ -24,7 +26,25 @@ const Instructions = () => {
     useEffect(()=>{
       fatchSearchMeal()
     },[id])
+    
+    const ingredientArr = []
 
+    for(let i = 1; i <= 20; i++){
+      const ingredient = meal?.[`strIngredient${i}`]
+      const mejor = meal?.[`strMeasure${i}`]
+      console.log("ingredient",ingredient);
+      
+      if(ingredient && ingredient.length > 0){
+        ingredientArr.push({
+        ingredient: ingredient,
+        mejor: mejor
+      })
+      }
+     
+     console.log(ingredientArr);
+    
+    }
+  
   return (
    <>
    <section>
@@ -62,23 +82,17 @@ const Instructions = () => {
         <h3 className="text-bol text-3xl font-bold pt-9 pl-5">Ingredients</h3>
         <div className="border mt-4 border-gray-200 mx-5"> </div>
         <div className="ml-5 mt-5">
-       {(() => {
-      let items = [];
-       for (let i = 1; i <= 20; i++) {
-        const ingredient = meal?.[`strIngredient${i}`];
-        if (ingredient) {
-          items.push(
-           <div key={i} className="flex items-center gap-2 text-wh mt-2">
-            <button className="bg-orange-100 text-orange-800 flex justify-center hover:bg-orange-200 items-center w-5 h-5 rounded-full">
-              {i}
-            </button>
-            <span>{ingredient}</span>
-          </div>
-        );
-      }
-    }
-    return items;
-  })()}
+        {ingredientArr.map((iteam , index)=>{
+          return(
+           <>
+           <div className="flex gap-1.5  ">
+              <span className="bg-orange-100 mt-3 text-orange-800 h-5 flex justify-center items-center w-5 rounded-full">{index+1}</span>
+            <p key={index} className="mt-3"> {iteam.mejor} {iteam.ingredient}</p>
+           </div>
+           </>
+          )
+        })}  
+      
 </div>
 
      </div>
