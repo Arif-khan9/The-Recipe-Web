@@ -48,7 +48,7 @@ const Instructions = () => {
   return (
    <>
    <section>
-    <Link to={"/"}><button className="px-4 py-2 ml-7 md:ml-35 lg:ml-55 reltive mt-20 text-xl font-bold hover:-translate-y-1 transition-transform duration-300 rounded-full bg-amber-600 hover:bg-amber-700 hover:shadow-lg text-white">Back</button></Link>
+    <button className="px-4 py-2 ml-7 md:ml-35 lg:ml-55 reltive mt-20 text-xl font-bold hover:-translate-y-1 transition-transform duration-300 rounded-full bg-amber-600 hover:bg-amber-700 hover:shadow-lg text-white" onClick={()=>{window.history.back()}}>Back</button>
    <div className='flex justify-center items-center   '>
      <div className=' flex-col items-center lg:flex-row mt-10 flex justify-center gap-10 px-5'>
         <img className='md:h-120 h-80 w-83 md:w-120 object-contain bg-center bg-cover rounded-2xl  px-2' src={meal?.strMealThumb} alt="" />

@@ -3,6 +3,7 @@ import Home from './Components/Home'
 import Instructions from './Components/Instructions'
 import { Route, Routes } from 'react-router-dom'
 import Search from './Components/Search'
+import Meals from './Components/Meals'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
     <Route path='/' element={<Home/>}/>
     <Route path='/recipe/:id' element={<Instructions />}/>
     <Route path='/search' element={<Search/>}/>
+    <Route path='/meals' element={<Meals/>}/>
     </Routes>
      
     

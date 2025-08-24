@@ -55,7 +55,7 @@ const Home = () => {
          <Link to={`/recipe/${singleMealId}`}> <button className='py-3 px-6 rounded-full bg-amber-500 hover:bg-amber-700 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300 text-white flex items-center gap-2.5'>
             <FaBookOpen /> Today's Special
           </button></Link>
-         <Link to={"/search"}> <button className='py-3 px-6 rounded-full bg-gray-50 text-amber-800 border border-amber-300 hover:-translate-y-1 transition-transform duration-300 flex items-center gap-2.5'>
+         <Link to={`/search`}> <button className='py-3 px-6 rounded-full bg-gray-50 text-amber-800 border border-amber-300 hover:-translate-y-1 transition-transform duration-300 flex items-center gap-2.5'>
             <IoMdSearch /> Search a Recipe
           </button></Link>
         </div>
@@ -78,10 +78,12 @@ const Home = () => {
           {
             data.map((item, index) => {
               return(
+                <Link to={"/meals"}>
                 <div
                 key={index}
                 className=" group  bg-white w-80 pb-5 hover:-translate-y-1 transition-transform duration-300 gap-3  hover:shadow-2xl flex flex-col justify-center rounded-2xl"
               >
+              
               <div className=' relative h-60'>
                   <img
                   src={item.strCategoryThumb}
@@ -90,6 +92,7 @@ const Home = () => {
                 />
                 <div className='absolute w-full opacity-0 group-hover:opacity-100  -z-1 inset-0 h-full  bg-gradient-to-t from-[#868e96] to-transparent'></div>
               </div>
+              
                 <h3 className="text-xl text-amber-900 hover:text-amber-700 font-bold mt-4 px-5">
                   {item.strCategory}
                 </h3>
@@ -98,6 +101,7 @@ const Home = () => {
                 </p>
                 <button className='bg-amber-200 flex items-center w-40  ml-5 justify-center text-amber-700 rounded-full gap-3.5 py-1.5   opacity-0 group-hover:opacity-100'>View Recipe <FaArrowRightLong /></button>
               </div>
+              </Link>
               )
             }
               
