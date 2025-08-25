@@ -71,7 +71,7 @@ const Search = () => {
         </div>  
     </div>
     <div className='flex justify-center mt-30 md:mt-20'>
-            <div className='py-10 px-7 md:px-10 lg:px-16 bg-blue-50 rounded-2xl mb-8'>
+            <div className='py-10 px-5 md:px-10 lg:px-16 bg-blue-50 rounded-2xl mb-8'>
                 <h3 className='text-2xl font-bold mt-3 '>How to search</h3>
                 <div className=' mt-6 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-5'>
                     {category.map((item , index)=>{
