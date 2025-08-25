@@ -71,7 +71,7 @@ const Search = () => {
         </div>  
     </div>
     <div className='flex justify-center mt-30 md:mt-20'>
-            <div className='py-10 px-2 md:px-10 lg:px-16 bg-blue-50 rounded-2xl mb-8'>
+            <div className='py-10 px-10 md:px-10 lg:px-16 bg-blue-50 rounded-2xl mb-8'>
                 <h3 className='text-2xl font-bold mt-3 '>How to search</h3>
                 <div className=' mt-6 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-5'>
                     {category.map((item , index)=>{
@@ -93,9 +93,9 @@ const Search = () => {
             return( 
                 <Link to={`/recipe/${item.idMeal}`}>
                 <div key={index} className='group  h-80 w-80 md:w-60 bg-white shadow-lg mb-7 hover:-translate-y-1 transition-transform duration-300 rounded-2xl'>
-                    <img className='object-cover h-40 w-80 rounded-t-2xl group-hover:scale-101 ' src={item.strMealThumb} alt="" />
+                    <img className='object-cover h-40 w-80 rounded-t-2xl group-hover:scale-101 ' src={item?.strMealThumb} alt="" />
                     <div className='mt-2 px-3 '>
-                     <h2 className='text-amber-800 text-xl font-bold'>{item.strMeal}</h2>
+                     <h2 className='text-amber-800 text-xl font-bold'>{item?.strMeal}</h2>
                     <span className='px-5  py-1.5 bg-amber-400 rounded-full  relative top-2 text-amber-800'>#{arif}</span>
                      <span className='flex opacity-0 group-hover:opacity-100 py-1.5 px-5 justify-center items-center gap-1.5 w-40   bg-amber-400 rounded-full text-amber-800 relative top-6'>View Recipe<FaArrowRight /></span>
                     </div>
