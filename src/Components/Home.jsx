@@ -8,6 +8,7 @@ const Home = () => {
 
   const [data, setData] = useState([]);
   const [singleMealId , setSingleMealId] = useState(null)
+  const [search, setSearch] = useState("");
   
 
   const API = `https://www.themealdb.com/api/json/v1/1/categories.php`;
@@ -42,6 +43,12 @@ const Home = () => {
  useEffect(()=>{
   fetchSingleMeal()
  },[])
+
+  const filteredData = data.filter(item =>
+    item.strCategory.toLowerCase().includes(search.toLowerCase())
+  );
+
+
   return (
     <>
       <div className='bg-[url(/hero.jpg)] bg-center bg-cover flex flex-col items-center justify-center text-center h-[750px] gap-8'>
@@ -64,11 +71,13 @@ const Home = () => {
         <div className="flex flex-col justify-center text-center items-center gap-6 pt-20">
           <h3 className='text-3xl md:text-4xl text-amber-900 font-bold'>Browse by Category</h3>
           <div className='flex items-center relative  gap-2.5'>
-            <IoMdSearch className='absolute hover:translate-y-1  left-1.5 md:left-3 text-amber-900 hidden md:block md:text-xl' />
+            <IoMdSearch className='relative left-1.5  md:left-11 text-amber-900 hidden md:block md:text-xl' />
             <input
-              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full hover:-translate-y-1 transition-transform duration-300 p-3 px-4 md:px-12 placeholder:text-amber-600'
+              className='border bg-white border-amber-300 text-xs md:text-xl rounded-full  p-3 px-4 md:px-12 placeholder:text-amber-600'
               type="text"
+              value={search}
               placeholder='Search for Category'
+              onChange={(e)=>setSearch(e.target.value)}
              
             />
           </div>
@@ -76,7 +85,7 @@ const Home = () => {
 
         <div className="flex flex-col  md:grid md:grid-cols-2  gap-10 lg:grid-cols-3 xl:grid-cols-4 place-items-center md:px-10  py-16">
           {
-            data.map((item, index) => {
+            filteredData.map((item, index) => {
               return(
                 <Link to={"/meals"}>
                 <div
@@ -88,7 +97,7 @@ const Home = () => {
                   <img
                   src={item.strCategoryThumb}
                   alt={item.strCategory}
-                  className="rounded-xl h-50 w-full object-cover  overflow-hidden transition-transform  duration-300 group-hover:scale-105"
+                  className="rounded-xl h-50 w-full object-cover  overflow-hidden transition-transform  duration-300 "
                 />
                 <div className='absolute w-full opacity-0 group-hover:opacity-100  -z-1 inset-0 h-full  bg-gradient-to-t from-[#868e96] to-transparent'></div>
               </div>
