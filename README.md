@@ -17,4 +17,4 @@ This project allows users to search recipes dynamically and navigate across page
 - **Recipe API**  
 
 ##  Project Structure  
-<a href="https://your-vercel-link.vercel.app/" target="_blank">Visit Recipe Finder</a>
+<a href="https://the-recipe-web.vercel.app/" target="_blank">Visit Recipe Finder</a>
